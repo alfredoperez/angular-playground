@@ -1,0 +1,8 @@
+<div class="schedule">
+  <ngx-schedule-calendar [date]="date$ | async" (change)="changeDate($event)"
+    [items]="schedule$ | async" (select)="changeSection($event)">
+  </ngx-schedule-calendar>
+  <ngx-schedule-assign [section]="selected$ | async" [list]="list$ | async"
+    *ngIf="open" (cancel)="closeAssign()" (update)="assignItem($event)">
+  </ngx-schedule-assign>
+</div>

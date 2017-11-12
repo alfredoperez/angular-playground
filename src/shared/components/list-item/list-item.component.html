@@ -1,0 +1,25 @@
+<div class="list-item">
+  <a [routerLink]="getRoute(item)">
+    <p class="list_item__name"> {{item.name}} </p>
+    <p class="list_item__ingredients">
+      <span *ngIf="item.ingredients; else showWorkout">
+        {{item.ingredients | ngxJoin}}
+      </span>
+    </p>
+    <ng-template #showWorkout>
+      <span>{{item | ngxWorkout}}</span>
+    </ng-template>
+  </a>
+  <div *ngIf="toggled" class="list-item__delete">
+    <p>Delete item?</p>
+    <button class="confirm" type="button" (click)="removeItem()">
+      Yes
+    </button>
+    <button class="cancel" type="button" (click)="toggle()">
+      No
+    </button>
+  </div>
+  <button class="trash" type="button" (click)="toggle()">
+    <img src="/assets/img/remove.svg">
+  </button>
+</div>

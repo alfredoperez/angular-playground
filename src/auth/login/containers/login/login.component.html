@@ -1,0 +1,11 @@
+<div>
+
+  <ngx-auth-form (submitted)="loginUser($event)">
+    <h1>Login</h1>
+    <a routerLink="/auth/register"> Not Registered</a>
+    <button type="submit">Login</button>
+    <div class="error" *ngIf="error">
+      {{error}}
+    </div>
+  </ngx-auth-form>
+</div>
